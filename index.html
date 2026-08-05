@@ -1,0 +1,2380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="IX International Symposium on Specialty Polymers, 7–9 October, Almaty, Kazakhstan"
+  />
+  <title>IX International Symposium on Specialty Polymers</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <style>
+    /* =========================================================
+       1. DESIGN TOKENS / BASIC SETTINGS
+       Change the colors below to quickly adapt the website style.
+       ========================================================= */
+    :root {
+      --primary: #0d3b66;
+      --primary-dark: #082842;
+      --secondary: #167d9a;
+      --accent: #f2b134;
+      --accent-dark: #d99412;
+      --surface: #ffffff;
+      --surface-soft: #f5f8fb;
+      --surface-blue: #eaf3f8;
+      --text: #1f2d3d;
+      --text-soft: #5d6b79;
+      --border: #d9e3ea;
+      --success: #0b7a75;
+      --shadow-sm: 0 8px 24px rgba(13, 59, 102, 0.08);
+      --shadow-md: 0 18px 50px rgba(13, 59, 102, 0.14);
+      --radius-sm: 12px;
+      --radius-md: 20px;
+      --radius-lg: 30px;
+      --container: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--surface);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    .container {
+      width: min(calc(100% - 36px), var(--container));
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 92px 0;
+    }
+
+    .section-soft {
+      background: var(--surface-soft);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 42px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      color: var(--secondary);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.18;
+      color: var(--primary-dark);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 18px;
+    }
+
+    .section-heading p {
+      color: var(--text-soft);
+      font-size: 1.05rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform 0.25s ease, box-shadow 0.25s ease,
+        background 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      color: #10243c;
+      background: var(--accent);
+      box-shadow: 0 10px 25px rgba(242, 177, 52, 0.3);
+    }
+    
+    .hero .btn-primary{
+    padding: 18px 42px;      /* было примерно 14px 32px */
+    font-size: 1.25rem;      /* размер текста */
+    font-weight: 500;        /* было 700 или 800 */
+    border-radius: 50px;
+    font-weight: 500;   /* мой совет */     /* красивые скругления */
+    }
+
+    
+
+    .btn-primary:hover {
+      background: #ffc44f;
+      box-shadow: 0 14px 32px rgba(242, 177, 52, 0.4);
+    }
+
+    .btn-outline {
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.55);
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.16);
+      border-color: #fff;
+    }
+
+    .btn-dark {
+      color: #fff;
+      background: var(--primary);
+    }
+
+    .btn-dark:hover {
+      background: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================
+       2. HEADER / NAVIGATION
+       ========================================================= */
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid rgba(217, 227, 234, 0.9);
+      backdrop-filter: blur(14px);
+      transition: box-shadow 0.25s ease;
+    }
+
+    .site-header.scrolled {
+      box-shadow: 0 10px 30px rgba(13, 59, 102, 0.08);
+    }
+
+    .nav-wrap {
+      min-height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+    }
+
+
+
+
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 22px;
+      list-style: none;
+      width: 100%;
+    }
+
+    .nav-menu a:not(.btn) {
+      position: relative;
+      padding: 10px 0;
+      color: #334657;
+      font-size: 0.92rem;
+      font-weight: 700;
+    }
+
+    .nav-menu a:not(.btn)::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 100%;
+      bottom: 5px;
+      height: 2px;
+      background: var(--secondary);
+      transition: right 0.25s ease;
+    }
+
+    .nav-menu a:not(.btn):hover::after,
+    .nav-menu a.active::after {
+      right: 0;
+    }
+
+    .mobile-toggle {
+      display: none;
+      width: 40px;
+      height: 40px;
+      border: 0;
+      border-radius: 12px;
+      background: var(--surface-blue);
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .mobile-toggle span,
+    .mobile-toggle::before,
+    .mobile-toggle::after {
+      content: "";
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 5px auto;
+      background: currentColor;
+      transition: transform 0.25s ease, opacity 0.25s ease;
+    }
+
+    .mobile-toggle.open span {
+      opacity: 0;
+    }
+
+    .mobile-toggle.open::before {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .mobile-toggle.open::after {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    /* =========================================================
+       3. HERO
+       ========================================================= */
+    .hero{
+        min-height: 100vh;
+        padding: 135px 0 90px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        position: relative;
+        background: url("al-farabi_2.avif") center center/cover no-repeat;
+    }
+    
+        /* Контейнер для двух логотипов и центральной иконки */
+    .hero-logos {
+      width: 100%;
+      max-width: 850px;
+      margin: 0 auto 36px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: clamp(24px, 5vw, 70px);
+    }
+
+    /* Логотипы двух организаций */
+    .hero-logo {
+      width: clamp(120px, 17vw, 210px);
+      height: clamp(120px, 17vw, 210px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Центральная иконка конференции */
+    .hero-event-icon {
+      width: clamp(105px, 14vw, 165px);
+      height: clamp(105px, 14vw, 165px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Общие стили изображений */
+    .hero-logo img,
+    .hero-event-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .hero-image{
+      width:100%;
+      height:460px;      
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background: transparent;
+      border-radius:16px;
+      padding:20px;
+    }
+
+    .hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    }
+
+    .hero::before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:rgba(8,35,70,.65);
+        z-index:0;
+    }
+
+    .hero .container{
+        position:relative;
+        z-index:1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1050px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 8px 14px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #dff6ff;
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 950px;
+      margin: 0 auto 24px;
+      color: #fff;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: clamp(2.35rem, 5vw, 4.8rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      text-align: center;
+    }
+
+    .hero h1 span {
+      display: block;
+      margin-top: 6px;
+      font-weight: 700;
+    }
+
+    .hero-description {
+      max-width: 730px;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1rem, 1.8vw, 1.18rem);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin: 30px 0;
+    }
+
+    .meta-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.17);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .meta-chip svg {
+      flex: 0 0 auto;
+      width: 21px;
+      height: 21px;
+      color: var(--accent);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-media-placeholder {
+      min-height: 520px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: var(--radius-lg);
+      background:
+        linear-gradient(rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.05)),
+        repeating-linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.04) 0,
+          rgba(255, 255, 255, 0.04) 10px,
+          transparent 10px,
+          transparent 20px
+        );
+      box-shadow: var(--shadow-md);
+      display: grid;
+      place-items: center;
+      padding: 34px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-media-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px dashed rgba(255, 255, 255, 0.35);
+      border-radius: 22px;
+    }
+
+    .placeholder-content {
+      position: relative;
+      z-index: 1;
+      max-width: 320px;
+    }
+
+    .placeholder-content .icon {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 18px;
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.12);
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+    }
+
+    .placeholder-content strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+      font-size: 1.2rem;
+    }
+
+    .placeholder-content p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.95rem;
+    }
+
+    /* =========================================================
+       4. HIGHLIGHTS / STATISTICS
+       ========================================================= */
+
+
+    /* =========================================================
+       5. ABOUT / TOPICS
+       ========================================================= */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 54px;
+      align-items: start;
+    }
+
+    .about-copy p {
+      margin-bottom: 18px;
+      color: var(--text-soft);
+    }
+
+    .mission-box {
+      margin-top: 26px;
+      padding: 24px;
+      border-left: 5px solid var(--accent);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      background: var(--surface-blue);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .topic-card {
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .topic-card .number {
+      width: 38px;
+      height: 38px;
+      margin-bottom: 14px;
+      border-radius: 11px;
+      background: var(--surface-blue);
+      color: var(--secondary);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .topic-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.08rem;
+    }
+
+    .topic-card p {
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+
+        /* =========================================================
+      PUBLICATION OF SYMPOSIUM MATERIALS
+      ========================================================= */
+
+    .publication-section {
+      background:
+        radial-gradient(
+          circle at 12% 15%,
+          rgba(14, 95, 145, 0.07),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 88% 82%,
+          rgba(245, 174, 38, 0.08),
+          transparent 30%
+        ),
+        #f7f9fb;
+    }
+
+    .publication-heading {
+      max-width: 820px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+
+    .publication-grid {
+      max-width: 700px;
+      margin: 0 auto;
+
+    }
+
+    .publication-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 28px;
+      align-items: center;
+
+      padding: 28px;
+
+      background: #ffffff;
+      border: 1px solid rgba(15, 65, 105, 0.12);
+      border-radius: 18px;
+
+      box-shadow: 0 14px 36px rgba(10, 43, 69, 0.07);
+    }
+
+    .publication-cover {
+      width: 180px;
+      height: 240px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      overflow: hidden;
+      background: #eef3f6;
+      border-radius: 10px;
+    }
+
+    .publication-cover img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .publication-content h3 {
+      margin: 0 0 14px;
+
+      color: #102f49;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 650;
+      line-height: 1.35;
+    }
+
+    .publication-content p {
+      margin: 0 0 22px;
+
+      color: #566573;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 0.98rem;
+      line-height: 1.7;
+    }
+
+    .publication-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 12px 20px;
+
+      color: #ffffff;
+      background: #104a78;
+
+      border-radius: 40px;
+
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 0.92rem;
+      font-weight: 500;
+      text-decoration: none;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .publication-link:hover {
+      background: #0c3d64;
+      transform: translateY(-2px);
+    }
+
+
+    /* =========================================================
+       6. COMMITTEES
+       ========================================================= */
+    .committee-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .committee-card {
+      padding: 30px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .committee-card h3 {
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 1.4rem;
+    }
+
+    .person-list {
+      list-style: none;
+      display: grid;
+      gap: 15px;
+    }
+
+    .person-list li {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .person-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.72em;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .person-list strong {
+      color: var(--primary-dark);
+    }
+
+    .person-list span {
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    .wide-card {
+      grid-column: span 2;
+    }
+
+        /* =========================================================
+      HOW TO REGISTER
+      ========================================================= */
+
+    .registration-section {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 10% 10%,
+          rgba(21, 87, 129, 0.07),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 85%,
+          rgba(245, 174, 38, 0.08),
+          transparent 28%
+        ),
+        #f7f9fb;
+    }
+
+    .registration-section .section-heading {
+      max-width: 760px;
+      margin: 0 auto 64px;
+      text-align: center;
+    }
+
+    .registration-section .section-heading h2 {
+      margin: 10px 0 16px;
+    }
+
+    .registration-steps {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .registration-card {
+      position: relative;
+      min-height: 560px;
+      padding: 64px 28px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      background: #ffffff;
+      border: 1px solid rgba(15, 65, 105, 0.12);
+      border-radius: 18px;
+
+      box-shadow:
+        0 18px 45px rgba(10, 43, 69, 0.08);
+
+    }
+    .registration-email{
+      display:block;
+      margin-top:0;
+      color:#0e5f91;
+      font-weight:500;
+      text-decoration:none;
+    
+      display:block;
+      width:100%;
+
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+
+      white-space: normal;
+
+      text-align:center;}
+
+      /* Раскрывающиеся банковские реквизиты */
+
+    .bank-details {
+      width: 100%;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    .bank-details summary {
+      display: inline-block;
+      color: #d87800;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      text-decoration: underline;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    /* Убираем стандартный треугольник */
+    .bank-details summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .bank-details summary::marker {
+      display: none;
+    }
+
+    .bank-details summary:hover {
+      color: #b85f00;
+    }
+
+    /* По умолчанию показываем Show more */
+    .bank-details .show-less {
+      display: none;
+    }
+
+    /* Когда блок открыт */
+    .bank-details[open] .show-more {
+      display: none;
+    }
+
+    .bank-details[open] .show-less {
+      display: inline;
+    }
+
+    .bank-details-content {
+      margin-top: 18px;
+      text-align: left;
+    }
+
+    .bank-details-content p {
+      margin: 0;
+      color: #455564;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 0.94rem;
+      line-height: 1.6;
+      text-align: left;
+      overflow-wrap: anywhere;
+    }
+
+
+    .registration-number {
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 58px;
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #ffffff;
+      background: #104a78;
+
+      border: 5px solid #f7f9fb;
+      border-radius: 50%;
+
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+
+      box-shadow: 0 10px 25px rgba(16, 74, 120, 0.22);
+    }
+
+    .registration-icon {
+      width: 78px;
+      height: 78px;
+      margin-bottom: 26px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: #104a78;
+      background: rgba(16, 74, 120, 0.07);
+      border-radius: 18px;
+    }
+
+    .registration-icon svg {
+      width: 48px;
+      height: 48px;
+    }
+
+    .registration-card h3 {
+      margin: 0 0 16px;
+
+      color: #102f49;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 650;
+      line-height: 1.3;
+    }
+
+    .registration-card p {
+      margin: 0 0;
+
+      color: #566573;
+      font-family: "Inter", Arial, sans-serif;
+      font-size: 0.97rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .registration-deadline {
+      width: 100%;
+      margin: 8px 0 24px;
+      padding: 16px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+
+      background: rgba(245, 174, 38, 0.12);
+      border: 1px solid rgba(245, 174, 38, 0.38);
+      border-radius: 12px;
+
+      font-family: "Inter", Arial, sans-serif;
+    }
+
+    .registration-deadline strong {
+      color: #253b4c;
+      font-size: 0.9rem;
+    }
+
+    .registration-deadline span {
+      color: #bc7000;
+      font-size: 1rem;
+      font-weight: 650;
+    }
+
+
+
+
+    .registration-action{
+        width:100%;
+        margin-top:55px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+    }
+
+    .hero-register-btn{
+
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    min-width:240px;
+    height:74px;
+
+    padding:0 46px;
+
+    border-radius:40px;
+
+    font-size:1.2rem;
+    font-weight:500;
+
+    text-decoration:none;
+    }
+
+    /* =========================================================
+       7. ABSTRACT REQUIREMENTS
+       ========================================================= */
+    .abstract-grid {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 46px;
+      align-items: start;
+    }
+
+    .requirement-list {
+      display: grid;
+      gap: 14px;
+      list-style: none;
+    }
+
+    .requirement-list li {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 13px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+    }
+
+    .requirement-list .check {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: var(--surface-blue);
+      color: var(--success);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .requirement-list strong {
+      color: var(--primary-dark);
+    }
+
+    .requirement-list p {
+      color: var(--text-soft);
+      font-size: 0.94rem;
+    }
+
+    .abstract-placeholder {
+      min-height: 580px;
+      padding: 24px;
+      border: 2px dashed #a9bcc8;
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: var(--text-soft);
+    }
+
+    .abstract-placeholder strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+
+    /* =========================================================
+       8. CONTACTS / LOCATION
+       ========================================================= */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+    }
+
+    .contact-card,
+    .map-placeholder {
+      min-height: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .contact-card {
+      padding: 32px;
+    }
+
+    .contact-card h3 {
+      margin-bottom: 24px;
+      font-size: 1.55rem;
+    }
+
+    .contact-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:last-child {
+      border-bottom: 0;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--surface-blue);
+      color: var(--primary);
+      display: grid;
+      place-items: center;
+      font-weight: 900;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--primary-dark);
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--text-soft);
+      overflow-wrap: anywhere;
+    }
+
+    .map-placeholder {
+      min-height: 480px;
+      padding: 30px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      background:
+        linear-gradient(rgba(234, 243, 248, 0.88), rgba(234, 243, 248, 0.88)),
+        repeating-linear-gradient(45deg, #d5e4ed 0, #d5e4ed 1px, transparent 1px, transparent 22px);
+    }
+
+    .map-placeholder strong {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.45rem;
+    }
+
+    /* =========================================================
+       9. CTA
+       ========================================================= */
+    .cta {
+      padding: 72px 0;
+      color: #fff;
+      background: linear-gradient(135deg, var(--primary-dark), var(--secondary));
+    }
+
+    .cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+      color: #fff;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .cta p {
+      max-width: 700px;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    /* =========================================================
+       10. FOOTER
+       ========================================================= */
+    .site-footer {
+      padding: 48px 0 26px;
+      color: #d7e4ea;
+      background: #061d31;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 34px;
+      padding-bottom: 34px;
+    }
+
+    .footer-logo-placeholder {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 16px;
+      border: 1px dashed rgba(255, 255, 255, 0.45);
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      font-size: 0.7rem;
+      text-align: center;
+    }
+
+    .site-footer h3,
+    .site-footer h4 {
+      color: #fff;
+    }
+
+    .site-footer h3 {
+      margin-bottom: 10px;
+    }
+
+    .site-footer h4 {
+      margin-bottom: 15px;
+      font-size: 1rem;
+    }
+
+    .site-footer p,
+    .site-footer a {
+      color: #b8cad3;
+      font-size: 0.92rem;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: grid;
+      gap: 9px;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.85rem;
+    }
+
+    /* =========================================================
+       11. SCROLL-TO-TOP BUTTON
+       ========================================================= */
+    .scroll-top {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      z-index: 900;
+      width: 48px;
+      height: 48px;
+      border: 0;
+      border-radius: 50%;
+      background: var(--accent);
+      color: var(--primary-dark);
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(10px);
+      transition: 0.25s ease;
+    }
+
+    .scroll-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    /* =========================================================
+       12. RESPONSIVE DESIGN
+       ========================================================= */
+    @media (max-width: 1050px) {
+      .desktop-register {
+        display: none;
+      }
+
+      .nav-wrap {
+        min-height:60px;
+      }
+
+      .nav-menu {
+        gap: 16px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .abstract-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-media-placeholder {
+        min-height: 390px;
+      }
+
+      .about-copy {
+        max-width: 820px;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .mobile-toggle {
+        display: block;
+      }
+
+      .nav-menu {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: calc(100% + 10px);
+        display: grid;
+        gap: 4px;
+        padding: 18px;
+        border: 1px solid var(--border);
+        border-radius: 18px;
+        background: #fff;
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: 0.25s ease;
+      }
+
+      .nav-menu.open {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .nav-menu a:not(.btn) {
+        display: block;
+        padding: 12px;
+        border-radius: 10px;
+      }
+
+      .nav-menu a:not(.btn):hover {
+        background: var(--surface-blue);
+      }
+
+      .nav-menu a:not(.btn)::after {
+        display: none;
+      }
+
+      .nav-menu .mobile-register {
+        margin-top: 8px;
+      }
+
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .committee-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .wide-card {
+        grid-column: auto;
+      }
+
+      .cta-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+    @media (max-width: 600px) {
+    .publication-card {
+      grid-template-columns: 1fr;
+      gap: 22px;
+      padding: 22px;
+      text-align: center;
+    }
+
+    .publication-cover {
+      width: 170px;
+      height: 225px;
+      margin: 0 auto;
+    }
+
+    .publication-link {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    }
+
+    @media (max-width: 700px) {
+
+    .registration-steps {
+      display: grid;
+      grid-template-columns: 1fr !important;
+      gap: 52px;
+      width: 100%;
+    }
+
+    .registration-card {
+      width: 100%;
+      min-width: 0;
+      min-height: auto;
+      padding: 58px 24px 30px;
+    }
+
+    .registration-section .container {
+      width: 100%;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .registration-card h3 {
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .registration-card p {
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .registration-number {
+      top: -30px;
+    }
+
+    .registration-icon {
+      width: 72px;
+      height: 72px;
+    }
+
+    .registration-action {
+      width: 100%;
+      margin-top: 44px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .registration-action .btn {
+      min-width: 230px;
+      padding: 18px 42px;
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+  }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 72px 0;
+      }
+
+
+
+      .hero {
+        min-height: auto;
+        padding-top: 128px;
+      }
+
+      .hero-meta,
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-actions .btn,
+      .cta .btn {
+        width: 100%;
+      }
+
+      .committee-card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .abstract-placeholder {
+        min-height: 420px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+
+      <button
+        class="mobile-toggle"
+        id="mobileToggle"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="navMenu"
+      >
+        <span></span>
+      </button>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-menu" id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#publication">Publication</a></li>
+          <li><a href="#committee">Organizing Committee</a></li>
+          <li><a href="#registration">Registration</a></li>
+          <li><a href="#abstracts">Abstract Requirements</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- =======================================================
+         HERO SECTION
+         Replace the right-side placeholder with your building
+         photo or conference image.
+         ======================================================= -->
+    <section class="hero" id="home">
+      <div class="container hero-content">
+
+        <!-- =====================================================
+            ЛОГОТИПЫ ОРГАНИЗАТОРОВ И ИКОНКА МЕРОПРИЯТИЯ
+            Все три изображения находятся над текстом
+            ===================================================== -->
+        <div class="hero-logos">
+
+          <!-- Логотип КазНУ -->
+          <div class="hero-logo">
+            <img
+              src="icon_al.png"
+              alt="Al-Farabi Kazakh National University"
+            >
+          </div>
+
+          <!-- Иконка конференции -->
+          <div class="hero-event-icon">
+            <img
+              src="icon_sypos.png"
+              alt="International Symposium on Specialty Polymers"
+            >
+          </div>
+
+          <!-- Логотип Института полимерных материалов -->
+          <div class="hero-logo">
+            <img
+              src="IPM.png"
+              alt="Institute of Polymer Materials and Technology"
+            >
+          </div>
+
+        </div>
+
+
+        <!-- Название конференции -->
+        <h1>
+          IX International Symposium on
+          <span>Specialty Polymers</span>
+        </h1>
+
+        <!-- Основное описание -->
+        <p class="hero-description">
+          Dedicated to the 95th anniversary of Academician 
+          E.A. Bekturov 
+          and the 75th anniversary of 
+          Prof. S. Kudaibergenov
+
+        </p>
+
+        <!-- Дата и университет -->
+        <div class="hero-meta">
+
+          <div class="meta-chip">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+              />
+            </svg>
+
+            7–9 October 2026
+          </div>
+
+          <div class="meta-chip">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path
+                d="M12 21s7-6.3 7-12A7 7 0 1 0 5 9c0 5.7 7 12 7 12Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+              <circle
+                cx="12"
+                cy="9"
+                r="2.4"
+                stroke="currentColor"
+                stroke-width="1.8"
+              />
+            </svg>
+
+            Al-Farabi Kazakh National University
+          </div>
+
+        </div>
+
+        <!-- Место проведения -->
+        <p class="hero-location">
+          Plenary lectures, oral presentations and the poster session will take
+          place in the conference rooms of Al-Farabi Kazakh National University,
+          71 al-Farabi Avenue, Almaty, 050040, Kazakhstan.
+
+        </p></br>
+
+        <!-- Кнопки -->
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#">Register</a>
+          
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Quick facts -->
+
+    <!-- =======================================================
+         ABOUT THE EVENT
+         ======================================================= -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">About the event</div>
+          <h2>SYMPOSIUM TOPICS</h2>
+         
+        </div>
+
+
+          <div class="topics-grid" aria-label="Symposium topics">
+            <article class="topic-card">
+              <div class="number">01</div>
+              <h3>Synthesis, modification and characterization of specialty polymers</h3>
+
+            </article>
+
+            <article class="topic-card">
+              <div class="number">02</div>
+              <h3>Functional, stimuli-responsive and smart polymeric materials</h3>
+            </article>
+
+            <article class="topic-card">
+              <div class="number">03</div>
+              <h3>Polymers for biomedical, pharmaceutical and drug-delivery applications</h3>
+            </article>
+
+            <article class="topic-card">
+              <div class="number">04</div>
+              <h3>Polymers for environmental protection, water treatment and enhanced oil recovery</h3>
+            
+            </article>
+
+            <article class="topic-card">
+              <div class="number">05</div>
+              <h3>Specialty polymers for energy storage, catalysis, membranes and coatings</h3>
+            
+            </article>
+
+            <article class="topic-card">
+              <div class="number">06</div>
+              <h3>Polymer colloids, interfaces, self-assembly, supramolecular systems, scale-up and commercialization</h3>
+              
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <!-- =========================================================
+        PUBLICATION OF SYMPOSIUM MATERIALS
+        ========================================================= -->
+    <section class="section publication-section" id="publication">
+      <div class="container">
+
+        <div class="section-heading publication-heading">
+        
+          <h2>Publication of Symposium Materials</h2>
+
+          <p>
+            The presented reports will be published in the Abstract Book.
+            Selected papers will be considered for publication in a special issue
+            of the journal below.
+          </p>
+        </div>
+
+        <div class="publication-grid">
+
+          <!-- EURASIAN JOURNAL OF CHEMISTRY -->
+          <article class="publication-card">
+
+            <div class="publication-cover">
+              <!-- Замените имя файла на имя вашей картинки -->
+              <img
+                src="eurasian-journal.jpg"
+                alt="Eurasian Journal of Chemistry cover"
+              >
+            </div>
+
+            <div class="publication-content">
+              <h3>Eurasian Journal of Chemistry</h3>
+
+              <p>
+                Selected symposium papers may be published in a special issue
+                of the Eurasian Journal of Chemistry.
+              </p>
+
+              <a
+                class="publication-link"
+                href="https://ejc.buketov.edu.kz/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Visit journal website
+              </a>
+            </div>
+
+          </article>
+
+          <!-- CHEMICAL BULLETIN OF KAZAKH NATIONAL UNIVERSITY -->
+          
+
+        </div>
+
+
+
+      </div>
+    </section>
+
+    <!-- =======================================================
+         ORGANIZERS AND COMMITTEES
+         ======================================================= -->
+    <section class="section section-soft" id="committee">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Organizers and committees</div>
+          <h2>Scientific leadership of the symposium</h2>
+          <p>
+            The conference is supported by an international team of scientists
+            and local organizing partners.
+          </p>
+        </div>
+
+        <div class="committee-layout">
+        
+
+          
+
+          <article class="committee-card wide-card">
+            <h3>Organizing Committee</h3>
+            <ul class="person-list">
+              <li>
+                <strong>Z.K. Tuimebayev — Chair </strong>
+                <span>Chairman of the Board - Rector of NJSC "Al-Farabi Kazakh National University", Kazakhstan</span>
+              </li>
+              <li>
+                <strong>M.A. Dyussebayeva — Chair </strong>
+                <span>Dean of the Faculty of Chemistry and Chemical Technology "Al-Farabi Kazakh National University", Kazakhstan</span>
+              </li>
+              <li>
+                <strong>V.V. Khutoryanskiy — Co-Chair</strong>
+                <span>University of Reading, United Kingdom</span>
+              </li>
+              <li>
+                <strong>G.S. Irmukhametova — Co-Chair</strong>
+                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>N. Nuraje — Co-Chair</strong>
+                <span>Nazarbayev University, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>G.A. Mun</strong> —
+                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>E.M. Tazhbayev</strong> —
+                <span>E.A. Buketov Karaganda State University, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>M.S. Sagindykov</strong> —
+                <span>Institute of Polymer Materials and Technology, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>G.M. Kudaibergenova</strong> —
+                <span>Institute of Polymer Materials and Technology, Kazakhstan</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="committee-card wide-card">
+            <h3>International Advisory Board</h3>
+            <ul class="person-list">
+              <li><strong>H. Nishide</strong> — <span>Waseda University, Japan</span></li>
+              <li><strong>H. Tenhu</strong> — <span>University of Helsinki, Finland</span></li>
+              <li><strong>V. Aseyev</strong> — <span>University of Helsinki, Finland</span></li>
+              <li><strong>Shimei Xu</strong> — <span>Sichuan University, China</span></li>
+              <li>
+                <strong>V. Lozinsky</strong> —
+                <span>Institute of Elementoorganic Compounds, Russian Academy of Sciences, Russia</span>
+              </li>
+              <li>
+                <strong>G. Dzhardimalieva</strong> —
+                <span>Institute of Problems of Chemical Physics, Russian Academy of Sciences, Russia</span>
+              </li>
+              
+            </ul>
+          </article>
+
+          <article class="committee-card">
+            <h3>Secretariat</h3>
+            <ul class="person-list">
+              <li>
+                <strong>G.S. Tatykhanova</strong><br />
+                <span>Satbayev University, Kazakhstan</span>
+              </li>
+              <li>
+                <strong>D.N. Makhayeva</strong><br />
+                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+        <!-- =========================================================
+        HOW TO REGISTER
+        ========================================================= -->
+    <section class="section registration-section" id="registration">
+      <div class="container">
+
+        <div class="section-heading">
+      
+
+          <h2>How to Register</h2>
+
+        </div>
+
+        <div class="registration-steps">
+
+          <!-- STEP 1 -->
+          <article class="registration-card">
+
+            <div class="registration-number">1</div>
+
+            <div class="registration-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path
+                  d="M14 8h27l9 9v39H14V8Z"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M41 8v10h9M22 28h20M22 38h20M22 48h12"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <h3>Online Application</h3>
+
+            <p>
+              Complete the online application via Google Forms by clicking
+              the button below.
+            </p>
+
+            <div class="registration-deadline">
+              <strong>Application deadline:</strong>
+              <span>15 September 2026</span>
+            </div>
+
+            <!-- ВСТАВЬТЕ ССЫЛКУ НА GOOGLE FORM ВМЕСТО # -->
+
+          </article>
+
+          <!-- STEP 2 -->
+          <article class="registration-card">
+
+            <div class="registration-number">2</div>
+
+            <div class="registration-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path
+                  d="M8 22 32 7l24 15v32H8V22Z"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m9 23 23 20 23-20"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M23 29c0-6 4-10 10-10 5 0 9 3 9 8 0 4-2 7-6 7-2 0-3-1-3-3v-6"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <h3>Invitation Letter</h3>
+
+            <p>
+              After successful registration, you will receive an official
+              invitation letter by email.
+            </p>
+
+            <p class="registration-note">
+              Please make sure that the email address entered in the application
+              form is correct.
+            </p>
+
+          </article>
+
+          <!-- STEP 3 -->
+          <article class="registration-card">
+
+            <div class="registration-number">3</div>
+
+            <div class="registration-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect
+                  x="9"
+                  y="20"
+                  width="38"
+                  height="27"
+                  rx="3"
+                  stroke="currentColor"
+                  stroke-width="3"
+                />
+                <path
+                  d="M17 20v-6h38v27h-8"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <circle
+                  cx="28"
+                  cy="33.5"
+                  r="7"
+                  stroke="currentColor"
+                  stroke-width="3"
+                />
+                <path
+                  d="M12 27h5M39 40h5"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <h3>Registration Fee</h3>
+
+            <p>
+              Submit the registration fee <b>(50.000 KZT/person)</b> using the provided payment 
+              option (bank transfer). Send the payment confirmation receipt to 
+            </p>
+            <a
+              class="registration-email"
+              href="mailto:specialtypolymers2026@gmail.com">
+              specialtypolymers2026@gmail.com
+            </a><br/>
+            <p class="registration-highlight"> <b>10.000 KZT for students (BSc, MSc, PhD) </b></p>
+            
+            <details class="bank-details">
+            <summary>
+              <span class="show-more">Show more (bank details)</span>
+              <span class="show-less">Show less</span>
+            </summary>
+
+            <div class="bank-details-content">
+              <p>
+                <strong>TOO «TEQNOVATE»,</strong><br>
+                <strong>БИН</strong> 250240019672<br>
+                <strong>ИИК</strong> KZ74601A871048584461<br>
+                в Филиал АО «Народный Банк Казахстана»<br>
+                <strong>БИК</strong> HSBKKZKX
+              </p>
+            </div>
+          </details>
+
+
+          </article>
+
+          <!-- STEP 4 -->
+          <article class="registration-card">
+
+            <div class="registration-number">4</div>
+
+            <div class="registration-icon" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <rect
+                  x="9"
+                  y="14"
+                  width="46"
+                  height="42"
+                  rx="4"
+                  stroke="currentColor"
+                  stroke-width="3"
+                />
+                <path
+                  d="M9 25h46M20 8v12M44 8v12"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M20 34h5M30 34h5M40 34h5M20 44h5M30 44h5M40 44h5"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+
+            <h3>Symposium Details</h3>
+
+            <p>
+              After registration and payment confirmation, you will receive
+              the official symposium information and further organizational
+              details by email.
+            </p>
+
+            <p class="registration-note">
+              For questions about registration, accommodation or participation,
+              please contact the organizing committee.
+            </p>
+
+            <!-- ЗАМЕНИТЕ EMAIL НА НУЖНЫЙ -->
+            <a
+              class="registration-email"
+              href="mailto:specialtypolymers2026@gmail.com"
+            >
+              specialtypolymers2026@gmail.com
+            </a>
+
+          </article>
+
+          
+
+        </div>
+
+      <!-- Общая кнопка регистрации -->
+        <div class="registration-action">
+          <a class="btn btn-primary hero-register-btn" href="#">Register</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =======================================================
+         ABSTRACT REQUIREMENTS
+         Replace the right-side placeholder with your abstract
+         template image or a downloadable template link.
+         ======================================================= -->
+    <section class="section" id="abstracts">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Abstract submission</div>
+          <h2>Abstract requirements</h2>
+          <p>
+            Please prepare your abstract according to the formatting rules below.
+            The abstract should fit on one page.
+          </p>
+        </div>
+
+        <div class="abstract-grid">
+          <div>
+            <ul class="requirement-list">
+              <li>
+                <div class="check">✓</div>
+                <div>
+                  <strong>Title</strong>
+                  <p>
+                    Capital letters, Times New Roman, 12 pt, centered alignment.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <div class="check">✓</div>
+                <div>
+                  <strong>Authors</strong>
+                  <p>Times New Roman, 12 pt, centered alignment.</p>
+                </div>
+              </li>
+
+              <li>
+                <div class="check">✓</div>
+                <div>
+                  <strong>Affiliation and contact details</strong>
+                  <p>
+                    Organization, city, country and e-mail; Times New Roman,
+                    12 pt, centered alignment.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <div class="check">✓</div>
+                <div>
+                  <strong>Main text</strong>
+                  <p>
+                    Times New Roman, 12 pt, justified alignment, single line
+                    spacing, 20 mm margins and 1.25 cm first-line indentation.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <div class="check">✓</div>
+                <div>
+                  <strong>References</strong>
+                  <p>
+                    Include all cited literature at the end of the abstract.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+
+            <div style="margin-top: 24px;">
+              <!-- Replace # with a link to your DOC/DOCX/PDF template -->
+              
+            </div>
+          </div>
+
+          
+           <img src="abstract_template.png" alt="Abstract template">
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         CONTACTS AND LOCATION
+         Replace the map placeholder with Google Maps iframe.
+         ======================================================= -->
+    <section class="section section-soft" id="contacts">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Contacts and location</div>
+          <h2>Conference venue</h2>
+          <p>
+            The symposium will be hosted in Almaty at al-Farabi Kazakh National
+            University.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>Contact information</h3>
+
+            <div class="contact-item">
+              <div class="contact-icon">A</div>
+              <div>
+                <strong>Address</strong>
+                <p>
+                  71 al-Farabi Avenue, Almaty, 050040, Kazakhstan
+                </p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">@</div>
+              <div>
+                <strong>Email</strong>
+                <!-- Replace with your official conference email -->
+                <a href="mailto:conference@example.com">conference@example.com</a>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">P</div>
+              <div>
+                <strong>Organizing Committee</strong>
+                <p>+7 (705) 419-66-35</p>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">T</div>
+              <div>
+                <strong>Conference dates</strong>
+                <p>7–9 October 2026</p>
+              </div>
+            </div>
+          </article>
+
+          
+          <iframe src="https://yandex.ru/map-widget/v1/?z=16&ol=biz&oid=1107567086" width="100%" height="450" frameborder="0" allowfullscreen="true" style="position:relative; border-radius: 12px;"></iframe>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         FINAL REGISTRATION CALL TO ACTION
+         ======================================================= -->
+    <section class="cta">
+      <div class="container cta-inner">
+        <div>
+          <h2>Join the scientific community in Almaty</h2>
+          <p>
+            Register for the IX International Symposium on Specialty Polymers
+            and present your research to an international audience.
+          </p>
+        </div>
+        <!-- Replace # with your Google Form link -->
+        <a class="btn btn-primary" href="#">Register</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================
+       FOOTER
+       ======================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          
+          <h3>IX International Symposium on Specialty Polymers</h3>
+          <p>
+            7–9 October 2026 · al-Farabi Kazakh National University · Almaty,
+            Kazakhstan
+          </p>
+        </div>
+
+        <div>
+   
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#publication">Publication</a></li>
+
+          </ul>
+        </div>
+
+        <div>
+          <ul class="footer-links">
+            <li><a href="#committee">Committee</a></li>
+            <li><a href="#abstracts">Abstracts</a></li>
+            <li><a href="#contacts">Contacts</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" type="button" aria-label="Scroll to top">↑</button>
+
+  <script>
+    /* =========================================================
+       MOBILE MENU
+       ========================================================= */
+    const mobileToggle = document.getElementById("mobileToggle");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = navMenu.querySelectorAll('a[href^="#"]');
+
+    mobileToggle.addEventListener("click", () => {
+      const isOpen = navMenu.classList.toggle("open");
+      mobileToggle.classList.toggle("open", isOpen);
+      mobileToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navMenu.classList.remove("open");
+        mobileToggle.classList.remove("open");
+        mobileToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    /* =========================================================
+       SMOOTH SCROLL
+       The browser also supports CSS scroll-behavior, but this
+       JS keeps the behavior predictable in more browsers.
+       Registration buttons with href="#" are excluded.
+       ========================================================= */
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        const targetId = anchor.getAttribute("href");
+
+        if (!targetId || targetId === "#") return;
+
+        const target = document.querySelector(targetId);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    /* =========================================================
+       HEADER SHADOW AND SCROLL-TO-TOP BUTTON
+       ========================================================= */
+    const siteHeader = document.getElementById("siteHeader");
+    const scrollTopButton = document.getElementById("scrollTop");
+
+    function handleScroll() {
+      const hasScrolled = window.scrollY > 20;
+      siteHeader.classList.toggle("scrolled", hasScrolled);
+      scrollTopButton.classList.toggle("visible", window.scrollY > 500);
+    }
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    scrollTopButton.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    /* =========================================================
+       ACTIVE NAVIGATION ITEM WHILE SCROLLING
+       ========================================================= */
+    const sections = document.querySelectorAll("main section[id]");
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          navLinks.forEach((link) => link.classList.remove("active"));
+          const activeLink = navMenu.querySelector(
+            `a[href="#${entry.target.id}"]`
+          );
+          activeLink?.classList.add("active");
+        });
+      },
+      {
+        rootMargin: "-45% 0px -45% 0px",
+        threshold: 0,
+      }
+    );
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    /* Automatically update copyright year */
+    document.getElementById("currentYear").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
