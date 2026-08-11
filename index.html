@@ -1084,6 +1084,47 @@
       font-size: 1.35rem;
     }
 
+            /* ==================================================
+      OFFICIAL PARTNER
+    ================================================== */
+
+    .partner-section{
+        padding:70px 0;
+        background:#f8fbfd;
+    }
+
+    .partner-card{
+        max-width:900px;
+        margin:auto;
+        padding:45px 50px;
+        text-align:center;
+        background:#fff;
+        border-radius:18px;
+        
+        box-shadow:0 15px 35px rgba(10,43,69,.08);
+    }
+
+    .partner-logo{
+        width:260px;
+        max-width:100%;
+        margin:28px auto;
+        display:block;
+    }
+
+    .partner-card h3{
+        color:#103B63;
+        margin-bottom:18px;
+        font-size:1.7rem;
+    }
+
+    .partner-card p{
+        max-width:700px;
+        margin:auto;
+        color:#5d6d7e;
+        line-height:1.8;
+    }
+
+
 
     /* =========================================================
        8. CONTACTS / LOCATION
@@ -1374,10 +1415,6 @@
         grid-template-columns: 1fr;
       }
 
-      .committee-layout {
-        grid-template-columns: 1fr;
-      }
-
       .wide-card {
         grid-column: auto;
       }
@@ -1487,10 +1524,7 @@
         width: 100%;
       }
 
-      .committee-card,
-      .contact-card {
-        padding: 24px;
-      }
+
 
       .abstract-placeholder {
         min-height: 420px;
@@ -1523,7 +1557,7 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#publication">Publication</a></li>
-          <li><a href="#committee">Organizing Committee</a></li>
+          
           <li><a href="#registration">Registration</a></li>
           <li><a href="#abstracts">Abstract Requirements</a></li>
           <li><a href="#contacts">Contacts</a></li>
@@ -1756,104 +1790,7 @@
       </div>
     </section>
 
-    <!-- =======================================================
-         ORGANIZERS AND COMMITTEES
-         ======================================================= -->
-    <section class="section section-soft" id="committee">
-      <div class="container">
-        <div class="section-heading">
-          <div class="eyebrow">Organizers and committees</div>
-          <h2>Scientific leadership of the symposium</h2>
-          <p>
-            The conference is supported by an international team of scientists
-            and local organizing partners.
-          </p>
-        </div>
-
-        <div class="committee-layout">
-        
-
-          
-
-          <article class="committee-card wide-card">
-            <h3>Organizing Committee</h3>
-            <ul class="person-list">
-              <li>
-                <strong>Z.K. Tuimebayev — Chair </strong>
-                <span>Chairman of the Board - Rector of NJSC "Al-Farabi Kazakh National University", Kazakhstan</span>
-              </li>
-              <li>
-                <strong>M.A. Dyussebayeva — Chair </strong>
-                <span>Dean of the Faculty of Chemistry and Chemical Technology "Al-Farabi Kazakh National University", Kazakhstan</span>
-              </li>
-              <li>
-                <strong>V.V. Khutoryanskiy — Co-Chair</strong>
-                <span>University of Reading, United Kingdom</span>
-              </li>
-              <li>
-                <strong>G.S. Irmukhametova — Co-Chair</strong>
-                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>N. Nuraje — Co-Chair</strong>
-                <span>Nazarbayev University, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>G.A. Mun</strong> —
-                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>E.M. Tazhbayev</strong> —
-                <span>E.A. Buketov Karaganda State University, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>M.S. Sagindykov</strong> —
-                <span>Institute of Polymer Materials and Technology, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>G.M. Kudaibergenova</strong> —
-                <span>Institute of Polymer Materials and Technology, Kazakhstan</span>
-              </li>
-            </ul>
-          </article>
-
-          <article class="committee-card wide-card">
-            <h3>International Advisory Board</h3>
-            <ul class="person-list">
-              <li><strong>H. Nishide</strong> — <span>Waseda University, Japan</span></li>
-              <li><strong>H. Tenhu</strong> — <span>University of Helsinki, Finland</span></li>
-              <li><strong>V. Aseyev</strong> — <span>University of Helsinki, Finland</span></li>
-              <li><strong>Shimei Xu</strong> — <span>Sichuan University, China</span></li>
-              <li>
-                <strong>V. Lozinsky</strong> —
-                <span>Institute of Elementoorganic Compounds, Russian Academy of Sciences, Russia</span>
-              </li>
-              <li>
-                <strong>G. Dzhardimalieva</strong> —
-                <span>Institute of Problems of Chemical Physics, Russian Academy of Sciences, Russia</span>
-              </li>
-              
-            </ul>
-          </article>
-
-          <article class="committee-card">
-            <h3>Secretariat</h3>
-            <ul class="person-list">
-              <li>
-                <strong>G.S. Tatykhanova</strong><br />
-                <span>Satbayev University, Kazakhstan</span>
-              </li>
-              <li>
-                <strong>D.N. Makhayeva</strong><br />
-                <span>Al-Farabi Kazakh National University, Kazakhstan</span>
-              </li>
-            </ul>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
+  
         <!-- =========================================================
         HOW TO REGISTER
         ========================================================= -->
@@ -2168,6 +2105,35 @@
           
         </div>
       </div>
+    </section>
+
+    <section class="partner-section">
+
+      <div class="container">
+
+          <div class="partner-card">
+
+              <span class="section-label">
+                  <h3>Sponsored by</h3>
+              </span>
+
+              <img
+                  src="ic-lab-logo-1.svg"
+                  alt="ic_lab"
+                  class="partner-logo"
+              >
+
+
+              <p>
+                  The symposium is proudly supported by the IC LAB, promoting excellence,
+                  quality and international cooperation in science, technology
+                  and innovation.
+              </p>
+
+          </div>
+
+      </div>
+
     </section>
 
     <!-- =======================================================
